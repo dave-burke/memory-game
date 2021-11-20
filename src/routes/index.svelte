@@ -2,7 +2,9 @@
 	let numbers: Array<number> = [0, 0, 0, 0];
 	let timeout: number = 500;
 	let showTable: boolean = false;
-	function generateRandomNumber(min: number, max: number) {
+	let timeoutSeconds: number;
+	$: timeoutSeconds = Number((timeout / 1000).toFixed(1));
+	function generateRandomNumber(min: number, max: number): number {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	function handleGoClick() {
@@ -20,13 +22,16 @@
 		id="timeoutSlider"
 		bind:value={timeout}
 		type="range"
-		min="100"
-		max="10000"
-		step="100"
+		min="500"
+		max="5000"
+		step="500"
 	/>
-	{timeout}ms
+	{timeoutSeconds} seconds
 </p>
-<button on:click={handleGoClick}>Go</button>
+<!-- autofocus is only an a11y problem in conditionally rendered elements-->
+<!-- https://github.com/sveltejs/svelte/issues/6629#issuecomment-894803517 -->
+<!-- svelte-ignore a11y-autofocus -->
+<button on:click={handleGoClick} autofocus>Go</button>
 {#if showTable}
 	<table>
 		<tbody>

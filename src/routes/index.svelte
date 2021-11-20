@@ -17,11 +17,11 @@
 </table>
 {/if}
 
-<script>
-    let numbers = [0, 0, 0, 0]
-    let timeout = 500
-    let showTable = false
-    function generateRandomNumber(min, max) {
+<script type="typescript">
+    let numbers: Array<number> = [0, 0, 0, 0]
+    let timeout: number = 500
+    let showTable: boolean = false
+    function generateRandomNumber(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
     function handleGoClick() {

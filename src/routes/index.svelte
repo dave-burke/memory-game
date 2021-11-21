@@ -2,6 +2,7 @@
 	let numbers: Array<number> = [0, 0, 0, 0];
 	let timeout: number = 1000;
 	let showNumbers: boolean = false;
+	let alwaysShowNumbers: boolean = false;
 	let timeoutSeconds: number;
 	$: timeoutSeconds = Number((timeout / 1000).toFixed(1));
 	function generateRandomNumber(min: number, max: number): number {
@@ -30,9 +31,10 @@
 			step="500"
 		/>
 		{timeoutSeconds} seconds
+		<input type="checkbox" bind:checked="{alwaysShowNumbers}"/> always show numbers
 	</section>
 	<section class="numbers">
-		{#if showNumbers}
+		{#if showNumbers || alwaysShowNumbers}
 			<div id="numberValue">
 				{numbers[0]}
 				{numbers[1]}

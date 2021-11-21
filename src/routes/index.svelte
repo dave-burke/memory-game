@@ -16,36 +16,65 @@
 	}
 </script>
 
-<h1>Memory Game</h1>
-<p>
-	Show numbers for: <input
-		id="timeoutSlider"
-		bind:value={timeout}
-		type="range"
-		min="500"
-		max="5000"
-		step="500"
-	/>
-	{timeoutSeconds} seconds
-</p>
-<!-- autofocus is only an a11y problem in conditionally rendered elements-->
-<!-- https://github.com/sveltejs/svelte/issues/6629#issuecomment-894803517 -->
-<!-- svelte-ignore a11y-autofocus -->
-<button on:click={handleGoClick} autofocus>Go</button>
-{#if showTable}
-	<table>
-		<tbody>
-			<tr>
-				<td>{numbers[0]}</td>
-				<td>{numbers[1]}</td>
-				<td>{numbers[2]}</td>
-				<td>{numbers[3]}</td>
-			</tr>
-		</tbody>
-	</table>
-{/if}
+<main>
+	<header>
+		<h1>Memory Game</h1>
+	</header>
+	<section class="controls">
+		Show numbers for: <input
+			id="timeoutSlider"
+			bind:value={timeout}
+			type="range"
+			min="500"
+			max="5000"
+			step="500"
+		/>
+		{timeoutSeconds} seconds
+	</section>
+	<section class="numbers">
+		{#if showTable}
+			<div id="numberValue">
+				{numbers[0]}
+				{numbers[1]}
+				{numbers[2]}
+				{numbers[3]}
+			</div>
+		{/if}
+	</section>
+
+	<footer>
+		<!-- autofocus is only an a11y problem in conditionally rendered elements-->
+		<!-- https://github.com/sveltejs/svelte/issues/6629#issuecomment-894803517 -->
+		<!-- svelte-ignore a11y-autofocus -->
+		<button on:click={handleGoClick} autofocus>Go</button>
+	</footer>
+</main>
 
 <style>
+	main {
+		height: 100%;
+		margin-left: 2rem;
+		margin-right: 2rem;
+		display: flex;
+		flex-direction: column;
+	}
+	section.numbers {
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.numbers {
+		margin: auto;
+		font-size: xx-large;
+		font-weight: bold;
+		letter-spacing: 2rem;
+	}
+	footer {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 2rem;
+	}
 	#timeoutSlider {
 		width: 20rem;
 	}
@@ -53,15 +82,6 @@
 		width: 10rem;
 		padding: 2rem;
 		font-size: larger;
-		font-weight: bold;
-	}
-	table {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	table td {
-		padding: 2rem;
-		font-size: xx-large;
 		font-weight: bold;
 	}
 </style>

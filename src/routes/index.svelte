@@ -49,6 +49,12 @@
 	#timeoutSlider {
 		width: 20rem;
 	}
+	button {
+		width: 10rem;
+		padding: 2rem;
+		font-size: larger;
+		font-weight: bold;
+	}
 	table {
 		margin-left: auto;
 		margin-right: auto;

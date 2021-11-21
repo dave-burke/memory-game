@@ -1,7 +1,7 @@
 <script type="typescript">
 	let numbers: Array<number> = [0, 0, 0, 0];
 	let timeout: number = 1000;
-	let showTable: boolean = false;
+	let showNumbers: boolean = false;
 	let timeoutSeconds: number;
 	$: timeoutSeconds = Number((timeout / 1000).toFixed(1));
 	function generateRandomNumber(min: number, max: number): number {
@@ -10,8 +10,8 @@
 	function handleGoClick() {
 		for (let i = 0; i < numbers.length; i++) {
 			numbers[i] = generateRandomNumber(0, 9);
-			showTable = true;
-			setTimeout(() => (showTable = false), timeout);
+			showNumbers = true;
+			setTimeout(() => (showNumbers = false), timeout);
 		}
 	}
 </script>
@@ -32,7 +32,7 @@
 		{timeoutSeconds} seconds
 	</section>
 	<section class="numbers">
-		{#if showTable}
+		{#if showNumbers}
 			<div id="numberValue">
 				{numbers[0]}
 				{numbers[1]}

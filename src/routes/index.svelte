@@ -68,7 +68,8 @@
 		margin: auto;
 		font-size: xx-large;
 		font-weight: bold;
-		letter-spacing: 2rem;
+		letter-spacing: 1.5rem;
+		text-align: center;
 	}
 	footer {
 		margin-left: auto;

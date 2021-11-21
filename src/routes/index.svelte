@@ -1,6 +1,6 @@
 <script type="typescript">
 	let numbers: Array<number> = [0, 0, 0, 0];
-	let timeout: number = 500;
+	let timeout: number = 1000;
 	let showTable: boolean = false;
 	let timeoutSeconds: number;
 	$: timeoutSeconds = Number((timeout / 1000).toFixed(1));

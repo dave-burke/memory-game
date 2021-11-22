@@ -22,7 +22,7 @@
 			numbers[i] = generateRandomNumber(0, 9);
 			showNumbers = true;
 			rotation = rotate ? generateRandomNumber(-45, 45) : 0;
-			xPos = move ? generateRandomNumber(-5, 5) : 0;
+			xPos = move ? generateRandomNumber(-2, 5) : 0;
 			yPos = move ? generateRandomNumber(-5, 5) : 0;
 			setTimeout(() => (showNumbers = false), timeout);
 		}

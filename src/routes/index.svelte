@@ -20,12 +20,12 @@
 	function handleGoClick() {
 		for (let i = 0; i < numbers.length; i++) {
 			numbers[i] = generateRandomNumber(0, 9);
-			showNumbers = true;
-			rotation = rotate ? generateRandomNumber(-45, 45) : 0;
-			xPos = move ? generateRandomNumber(-2, 5) : 0;
-			yPos = move ? generateRandomNumber(-5, 5) : 0;
-			setTimeout(() => (showNumbers = false), timeout);
 		}
+		showNumbers = true;
+		rotation = rotate ? generateRandomNumber(-45, 45) : 0;
+		xPos = move ? generateRandomNumber(-15, 20) : 0;
+		yPos = move ? generateRandomNumber(-20, 20) : 0;
+		setTimeout(() => (showNumbers = false), timeout);
 	}
 </script>
 
@@ -54,7 +54,7 @@
 	</section>
 	<section class="numbers">
 		{#if showNumbers || alwaysShowNumbers}
-			<div id="numberValue" style="transform: rotate({rotation}deg) translateX({xPos}rem) translateY({yPos}rem)">
+			<div id="numberValue" style="position: relative; left: {xPos}vw; top: {yPos}vh; transform: rotate({rotation}deg)">
 				{numbers[0]}
 				{numbers[1]}
 				{numbers[2]}
@@ -78,6 +78,9 @@
 		margin-right: 2rem;
 		display: flex;
 		flex-direction: column;
+	}
+	h1 {
+		margin-bottom: 0;
 	}
 	section.numbers {
 		flex: 1 0 auto;

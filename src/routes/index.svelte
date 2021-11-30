@@ -49,7 +49,6 @@
 		<p>
 			<input type="checkbox" bind:checked="{rotate}"/> rotate
 			<input type="checkbox" bind:checked="{move}"/> move
-			<input type="checkbox" bind:checked="{alwaysShowNumbers}"/> always show numbers
 		</p>
 	</section>
 	<section class="numbers">
@@ -68,6 +67,9 @@
 		<!-- https://github.com/sveltejs/svelte/issues/6629#issuecomment-894803517 -->
 		<!-- svelte-ignore a11y-autofocus -->
 		<button on:click={handleGoClick} autofocus>Go</button>
+		<div>
+			<input type="checkbox" bind:checked="{alwaysShowNumbers}"/> always show numbers
+		</div>
 	</footer>
 </main>
 
@@ -99,6 +101,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		gap: 1rem;
 	}
 	#timeoutSlider {
 		width: 20rem;
